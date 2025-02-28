@@ -14,7 +14,9 @@ import argparse
 # 在这个例子中，日志文件application.log会在每天结束或文件大小达到10MB时自动分割，
 # 并保留最近的3个备份。每个备份文件都会以日期和分钟命名，例如disk_copy_2023-01-01_00.log。
 # 这样的设置可以有效管理日志文件的大小，避免单个文件过大。
-log_file = 'disk_copy.log'
+# current_dir = os.path.dirname(os.path.abspath(__file__))
+log_file = 'C:/self-learning/remote_disk/disk_copy.log'
+# log_file = os.path.join(current_dir, 'disk_copy.log')
 max_bytes = 1024 * 1024 * 10  # 10MB
 backup_count = 3
 
