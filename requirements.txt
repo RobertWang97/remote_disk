@@ -1,1 +1,2 @@
 schedule==1.2.2
+configparser==7.1.0
