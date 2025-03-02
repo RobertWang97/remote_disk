@@ -37,7 +37,7 @@ python 2.update_main_bat.py
 ```
 ### 2. 检查确认main.bat已经按照config.ini文件正确修改，类似=>
 ```shell
-python D:\uucopy\main.py -seconds 30 -s I:\ -t D:\u_disk_files
+start python D:\uucopy\main.py -seconds 30 -s I:\ -t D:\u_disk_files -dir %~dp0
 ```
 ## 第五部分 运行服务，查看结果
 ### 1. 执行启动服务, 重启电脑

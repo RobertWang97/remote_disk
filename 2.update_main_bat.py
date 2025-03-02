@@ -12,11 +12,18 @@ seconds = conf.get('production', 'seconds')
 
 file_path = f'{program}\\main.bat'  # 文件路径
 
+lines = ["@echo off\n",
+         "wmic process where \"name='python.exe'\" get name | find \"python.exe\" >nul\n",
+         "if errorlevel 1 (\n",
+         f"    start python {program}\\main.py -seconds {seconds} -s {source} -t {target} -dir %~dp0\n",
+         ") else (\n",
+         "    echo python is already running.\n",
+         ")"]
 # 修改内容
-content = f'python {program}\\main.py -seconds {seconds} -s {source} -t {target}'
+# content = f'python {program}\\main.py -seconds {seconds} -s {source} -t {target}'
 
 # 写回文件
 with open(file_path, 'w') as file:
-    file.write(content)
+    file.writelines(lines)
 
 print('done')
