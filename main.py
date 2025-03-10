@@ -23,6 +23,7 @@ parser.add_argument("-seconds", type=int, nargs="?", default=5, help="每次轮�
 parser.add_argument("-s", default='D://', help="源文件夹路径，也就是映射u盘路径")
 parser.add_argument("-t", default='C:/self-learning/tmp', help="目标文件夹主路径，也就是拷贝到的路径")
 parser.add_argument("-dir", default='C:/self-learning/tmp', help="程序路径")
+parser.add_argument("-service_name", help="服务名称")
 args = parser.parse_args()
 
 # print("当前文件夹: " + args.dir)
@@ -127,7 +128,8 @@ def done_folder(main_path, folder):
 if __name__ == '__main__':
     @repeat(every(args.seconds).seconds)
     def job():
-        service_name = "UUCopy"
+        # service_name = "UUCopy"
+        service_name = args.service_name
         # 使用sc命令查询服务状态，并查找包含"RUNNING"的行来判断服务是否正在运行
         command = f'sc query "{service_name}" | findstr /i "RUNNING"'
         try:

@@ -11,12 +11,14 @@ pip3 install -r requirements.txt
 ### 2. 在服务器上映射驱动器到#1的共享驱动，比如 I:\
 ### 3. 在服务器上设置一个用于拷贝数据的目标文件夹比如 D:\u_disk_files
 ### 4. 将运行程序文件夹拷贝的服务器，比如目录为D:\uucopy
+### 5. 配置服务名称，比如UUCopy
 ### 5. 打开并修改config.ini文件, 样例=>
 ```shell
 [production]
 source=I:\
 target=D:\u_disk_files
 program=D:\uucopy
+service_name=UUCopy
 seconds=30
 ```
 ## 第三部分 创建windows服务UUCopy
