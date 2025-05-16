@@ -1,17 +1,19 @@
-import subprocess
-import ctypes
-import time
-service_name = "UUCopy"
-# 使用sc命令查询服务状态，并查找包含"RUNNING"的行来判断服务是否正在运行
-command = f'sc query "{service_name}" | findstr /i "RUNNING"'
-try:
-    result = subprocess.run(command, shell=True, capture_output=True, text=True)
-    if result.returncode == 0:
-        print(f"{service_name}服务已启动, 尝试关闭")
-        time.sleep(10)
-        ctypes.windll.kernel32.ExitProcess(0)  # 这将结束当前Python进程。
-    else:
+import os
+import configparser
+import codecs
+import chardet
 
-        print(f"{service_name}服务未启动")
-except subprocess.CalledProcessError as e:
-    print(f"检测服务启动状态时出错: {e}")
+with open('config.ini', 'rb') as file:
+    raw_data = file.read()
+    result = chardet.detect(raw_data)
+    encoding = result['encoding']
+    print(encoding)
+# conf = configparser.ConfigParser()
+# conf.read_file(codecs.open('config.ini', "r", "utf-8-sig"))
+
+# program = conf.get('production', 'program')
+# service_name = conf.get('production', 'service_name')
+# # 执行命令
+# return_code = os.system(f'{program}\Instsrv.exe {service_name} {program}\Srvany.exe')
+
+# print("返回码:", return_code)

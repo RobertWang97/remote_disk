@@ -44,3 +44,7 @@ start python D:\uucopy\main.py -seconds 30 -s I:\ -t D:\u_disk_files -dir %~dp0
 ## 第五部分 运行服务，查看结果
 ### 1. 执行启动服务, 重启电脑
 ### 2. 查看disk_copy.log和D:\u_disk_files运行结果
+
+## 第六部分 以上基本已经作废，参考一下重新设置系统任务运行
+### 1. main.py中移除UUCopy服务相关的检查代码
+### 2. 参考以下链接设置windows启动任务https://blog.csdn.net/Folltoshe/article/details/143210121

@@ -128,8 +128,8 @@ def done_folder(main_path, folder):
 if __name__ == '__main__':
     @repeat(every(args.seconds).seconds)
     def job():
-        # service_name = "UUCopy"
-        service_name = args.service_name
+        service_name = "UUCopy"
+        # service_name = args.service_name
         # 使用sc命令查询服务状态，并查找包含"RUNNING"的行来判断服务是否正在运行
         command = f'sc query "{service_name}" | findstr /i "RUNNING"'
         try:
